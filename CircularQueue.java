@@ -33,21 +33,18 @@ public class CircularQueue {
     }
 
     private static void printList() {
+        if (head == null) {
+            System.out.println("Queue is empty");
+            return;
+        }
+
         tempNode = head;
         System.out.print("Queue elements : ");
-        while (tempNode != null) {
-            if(tempNode.next != null) {
-                System.out.printf("%d -> ", tempNode.key);
-            } else {
-                System.out.printf("%d", tempNode.key);
-            }
-
-            if (tempNode == end) {
-                break;
-            }
+        while (tempNode.next != head) {
+            System.out.printf("%d -> ", tempNode.key);
             tempNode = tempNode.next;
         }
-        System.out.println();
+        System.out.printf("%d -> %d \n", tempNode.key, tempNode.next.key);
     }
 
     private static void printMenu() {
